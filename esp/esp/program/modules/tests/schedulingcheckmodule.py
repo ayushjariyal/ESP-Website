@@ -43,9 +43,9 @@ from esp.program.modules.handlers.schedulingcheckmodule import (
     SchedulingCheckRunner,
 )
 
+class SchedulingCheckModuleTest(ProgramFrameworkTest):
 
-class RawSCFormatterTest(ProgramFrameworkTest):
-
+    # Test RawSCFormatter methods
     def test_format_table(self):
         formatter = RawSCFormatter()
 
@@ -62,9 +62,7 @@ class RawSCFormatterTest(ProgramFrameworkTest):
 
         self.assertEqual(result, data)
 
-
-class JSONFormatterTest(ProgramFrameworkTest):
-
+    # Test JSONFormatter methods
     def test_format_list(self):
         formatter = JSONFormatter()
 
@@ -86,9 +84,7 @@ class JSONFormatterTest(ProgramFrameworkTest):
 
         self.assertEqual(parsed["headings"], ["Name"])
 
-
-class SchedulingCheckRunnerTest(ProgramFrameworkTest):
-
+    # Test SchedulingCheckRunner methods
     @patch("esp.program.modules.handlers.schedulingcheckmodule.get_current_request")
     def test_runner_initializes(self, mock_request):
         """
